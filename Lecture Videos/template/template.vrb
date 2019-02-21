@@ -1,0 +1,5 @@
+\frametitle{Code Embedding from File : C++}
+\cpp{hello.cpp}{hello world!}
+\framebreak
+\includecode{cpp}{hello.cpp}{hello world!}
+\beamerclosesubstitutedenvironement {slide}
