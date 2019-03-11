@@ -1,0 +1,1 @@
+import requestsurl = 'https://sports.news.naver.com/kbaseball/news/index.nhn'# ?page=20&date=20160703&isphoto=N'r = requests.get(url, data = {'date' : '20160703'})print(r.text) # same as url + ?date=20160703

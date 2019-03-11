@@ -1,0 +1,1 @@
+d = {'사과' : 'apple', '바나나' : 'banana', '노트북' : 'laptop'}e = {'apple' : '사과', 'banana' : '바나나', 'laptop' : '노트북' }assert reverse_dict(d) == e

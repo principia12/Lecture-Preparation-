@@ -1,0 +1,6 @@
+\frametitle{Dictionary의 용도 예시 - Json}
+
+\python{request_example.py}{사전 뒤집기}
+위 예시를 사용하기 위해서는 pip install requests를 이용하여 requests 모듈을 다운로드 받으셔야 합니다.
+
+\beamerclosesubstitutedenvironement {slide}

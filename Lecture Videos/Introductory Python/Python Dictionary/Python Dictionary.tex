@@ -1,0 +1,109 @@
+\documentclass{beamer}
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+% \usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+% \usetheme{Warsaw}
+
+\usepackage{kotex} % For using korean. Do not modify this line.
+\usepackage{listings} % For embedding codes. Do not modifiy this line. 
+\usepackage{datetime} % For using date at compile time. 
+\logo{{\includegraphics[height=0.7cm]{../../../References/Template Images/fastcampus-logo-positive.png}}}% slide environment \newenvironment{slide}[1][]
+{%
+  \begin{frame}[allowframebreaks,#1]%
+  }{%
+  \end{frame}%
+}% \newcounter{totalcontinuationcount}
+% \makeatletter
+% \setbeamertemplate{frametitle continuation}{%
+    % \setcounter{totalcontinuationcount}{\beamer@endpageofframe}%
+    % \addtocounter{totalcontinuationcount}{1}%
+    % \addtocounter{totalcontinuationcount}{-\beamer@startpageofframe}%
+    % \ifnum \value{totalcontinuationcount} > 1
+        % \textmd{(\insertcontinuationcount/\arabic{totalcontinuationcount})}%
+    % \fi
+% }
+% \makeatother\setbeamertemplate{frametitle continuation}[from second][\insertcontinuationcountroman]% Code embeddings \renewcommand{\lstlistingname}{Code}
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}\newcommand{\includecode}[3]{\lstinputlisting[caption=#3, style=#1]{#2}} % For code inclusion. \newcommand{\python}[2]{\lstinputlisting[caption=#2, style=python]{#1}} % For code inclusion. \newcommand{\cpp}[2]{\lstinputlisting[caption=#2, style=cpp]{#1}} % For code inclusion. \usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstdefinestyle{python}{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4}\lstdefinestyle{cpp}{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4}
+\title{파이썬 Dictionary}
+
+% A subtitle is optional and this may be deleted
+\subtitle{Fastcampus Online Lecture}
+
+\author{신승우}
+
+
+% Let's get started
+\begin{document}
+
+\begin{slide}
+  \titlepage
+\end{slide}
+
+\begin{slide}{Outline}
+  \tableofcontents %[hideallsubsections]
+  % You might wish to add the option [pausesections]
+\end{slide}
+
+% Section and subsections will appear in the presentation overview
+% and table of contents.\section{Dictionary 소개} \begin{slide}[fragile, environment=slide]{Why Dictionary?} % 영어 단어와 그에 대응되는 한국어 단어의 순서쌍이 있다고 합시다. 앞에서 배운 자료형을 이용하면 다음과 같이 나타낼 수 있을 것입니다. \python{eng_kor.py}{영-한 단어 리스트}% 이 때, 한국어 단어에 대응되는 한국어 단어를 찾고 싶다고 합시다. 예를 들어서, 사과를 입력받으면 apple을 반환하는 함수를 짜고 싶다고 합시다. 다음과 같이 짤 수 있을 것입니다. \framebreak\python{translate_list.py}{영-한 단어}% 이 함수는 정확한 결과를 리턴하지만, 매번 저런 식의 함수를 짜는 것은 번거롭습니다. 이러한 문제를 해결하기 위해서 파이썬에서는 사전 자료형을 제공합니다. \end{slide}\begin{slide}[fragile, environment=slide]{파이썬 Dictionary} \python{eng_kor.py}{영-한 사전}% 앞 슬라이드에서 예시로 나온 한-영 단어들을 파이썬 사전을 이용해서는 다음과 같이 나타낼 수 있습니다. 사전 내의 원소들은 ,으로 나눠지며, :을 사이에 두고 있어야만 합니다. : 앞의 원소를 key, 뒤의 원소를 그 key의 값에 해당하는 value라고 합니다. 예를 들어서, 저 사전에서 사과는 key이고, apple은 그 key에 해당하는 value입니다. \end{slide}\section{Dictionary에서 쓸 수 있는 함수들} \begin{slide}[fragile, environment=slide]{Dictionary - 원소들 다루기} \python{get_item.py}{사전형 다루기}% 사전에서 대응되는 값들을 다음과 같이 다룰 수 있습니다. \end{slide}\begin{slide}[fragile, environment=slide]{Dictionary - for loop} \python{iter_dict.py}{사전형 다루기}% 사전 안 원소들을 다음과 같이 for loop를 이용하여 순회할 수 있습니다. \end{slide}\begin{slide}[fragile, environment=slide]{예제 - 사전 만들기} \begin{table}[인적사항]\begin{tabular}{|l|l|}\hline이름 & 신승우         \\ \hlineid & principia12 \\ \hline생일 & 1992.12.19  \\ \hline\end{tabular}\end{table}위 표의 내용을 담고 있는 dictionary를 만들어보세요. \end{slide}\begin{slide}[fragile, environment=slide]{예제 - 사전 뒤집기} \python{example.py}{사전 뒤집기}위 코드가 동작하도록 reverse\_dict 함수를 구현해보세요. % 사전 안 원소들을 다음과 같이 for loop를 이용하여 순회할 수 있습니다. \end{slide}% \section{Dictionary 더 살펴보기}% \begin{slide}[fragile, environment=slide]{Dictionary - unhashable type} % \end{slide}% \begin{slide}[fragile, environment=slide]{Dictionary - mutable types} % \end{slide}\section{Dictionary의 용도} \begin{slide}[fragile, environment=slide]{Dictionary의 용도 예시  -  Json} % 위에서 사전형 데이터를 살펴보았습니다. 이런 사전형 데이터는 복잡한 데이터를 나타낼 때 용이한데, 이는 리스트나 튜플과는 다르게 데이터에 임의의 색인을 부여할 수 있기 때문입니다. 예를 들어서, 리스트에서는 각 원소들에 0부터 시작하는 index가 부여됩니다. 사전은 이를 일반화하여, 원하는 색인을 자유롭게 부여할 수 있는 데이터형이라고 볼 수 있습니다. 따라서 사전형은 복잡한 데이터를 나타낼 때 용이합니다. 예를 들어서, 위 예제 1에서 나왔던 것처럼 인적사항 같은 데이터를 나타내기에 용이합니다. 여기서는 json을 예시로 들어 살펴보겠습니다. Json이란? \begin{itemize} \item JavaScript Object Notation \item 웹에서 정보를 주고 받을 때 사용 \end{itemize}\end{slide}\begin{slide}[fragile, environment=slide]{Dictionary의 용도 예시  -  Json} % 네이버 스포츠면을 예시로 살펴보겠습니다. 네이버 스포츠 기사 url을 잘 보면, url = 'https://sports.news.naver.com/kbaseball/news/index.nhn?page=20&date=20160703&isphoto=N' % 처럼 url 뒤에 ?로 된 부분이 있고, 이 부분 뒤에 date 같은 부분이 있습니다. 이 부분은 네이버에 우리가 어느 날의 기사를 보고 싶은지를 알려줍니다. 이 때, 주고받는 데이터를 파이썬에서는 dict를 이용하여 json을 만들고, 이것을 이용하여 네이버에게 필요한 데이터를 주거나 받게 됩니다.\python{request_example.py}{사전 뒤집기}위 예시를 사용하기 위해서는 pip install requests를 이용하여 requests 모듈을 다운로드 받으셔야 합니다. \end{slide}
+
+\end{document}
+
+

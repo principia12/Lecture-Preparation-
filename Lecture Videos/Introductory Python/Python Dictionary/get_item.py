@@ -1,0 +1,1 @@
+d = {'사과' : 'apple', '바나나' : 'banana', '노트북' : 'laptop'}# key에 대응되는 value 얻기 print(d['사과'])# key에 대응되는 value 바꾸기, 새 원소 넣기 d['사과'] = 'an apple'd['오렌지'] = 'orange'
